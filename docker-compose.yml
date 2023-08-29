@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+   # ports:
+    #  - "8000:80"
+    volumes:
+      - ./webs/laravel-starter:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: laravel_password
+      MYSQL_DATABASE: laravel_starter
+      MYSQL_USER: laravel_user
+      MYSQL_PASSWORD: laravel_password
+    volumes:
+      - ./db:/var/lib/mysql
