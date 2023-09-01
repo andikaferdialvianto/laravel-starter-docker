@@ -3,7 +3,7 @@ name: CI/CD for Laravel
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
